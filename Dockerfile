@@ -9,4 +9,8 @@ FROM alpine:3
 COPY --from=builder /go/bin/check_container /go/bin/check_container
 EXPOSE 14444
 ENTRYPOINT ["/go/bin/check_container"]
-CMD ["-listen-address=:14444"]
+CMD ["-check-container-isofh=:14444"]
+
+
+
+

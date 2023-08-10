@@ -175,7 +175,7 @@ func errCheck(err error) {
 
 // Define flags.
 var (
-	address = flag.String("IP service", ":14444", "Service check container.")
+	address = flag.String("check-container-isofh", ":444", "Service check .")
 )
 
 func init() {
@@ -201,7 +201,7 @@ func main() {
 	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "<h1>Check container service</h1>")
+		fmt.Fprintf(w, "<h1>docker state exporter</h1>")
 	})
 
 	http.HandleFunc("/-/healthy", func(w http.ResponseWriter, r *http.Request) {
@@ -231,7 +231,7 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	if err := server.Shutdown(ctx); err != nil {
-		errorLogger.Log("message", fmt.Sprintf("Dont'shutdown: %v", err))
+		errorLogger.Log("message", fmt.Sprintf("Failed to gracefully shutdown: %v", err))
 	}
 	normalLogger.Log("message", "Server shutdown")
 }
