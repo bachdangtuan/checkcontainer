@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y curl git ca-certificates
 RUN curl -fsSL https://golang.org/dl/go1.17.2.linux-amd64.tar.gz | tar -C /usr/local -xzf -
 ENV PATH=$PATH:/usr/local/go/bin
 
-# Cài đặt Docker
+# Cài đặt Docker (DinD)
 RUN apt-get update && \
     apt-get install -y apt-transport-https ca-certificates curl software-properties-common && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
@@ -49,6 +49,7 @@ EXPOSE 19092
 # Đặt điểm khởi động (entrypoint) và tham số mặc định cho ứng dụng
 ENTRYPOINT ["/go/bin/container_exporter"]
 CMD ["-listen-address=:19092"]
+
 
 
 
