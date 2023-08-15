@@ -18,8 +18,8 @@
 # Sử dụng hình ảnh Docker làm cơ sở
 FROM docker:latest
 
-# Cập nhật hệ thống và cài đặt các gói cần thiết
-RUN apt-get update && apt-get install -y curl git ca-certificates
+# # Cập nhật hệ thống và cài đặt các gói cần thiết
+# RUN apt-get update && apt-get install -y curl git ca-certificates
 
 # Cài đặt Golang
 RUN curl -fsSL https://golang.org/dl/go1.17.2.linux-amd64.tar.gz | tar -C /usr/local -xzf -
