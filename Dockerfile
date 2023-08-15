@@ -14,7 +14,7 @@
 
 
 
-# Sử dụng hình ảnh Ubuntu làm cơ sở cho việc chạy ứng dụng và cài đặt Docker
+# Sử dụng hình ảnh Ubuntu làm cơ sở cho việc chạy ứng dụng và cài đặt Docker CLI
 FROM ubuntu:latest
 
 # Cập nhật hệ thống và cài đặt các gói cần thiết
@@ -24,13 +24,13 @@ RUN apt-get update && apt-get install -y curl git ca-certificates
 RUN curl -fsSL https://golang.org/dl/go1.17.2.linux-amd64.tar.gz | tar -C /usr/local -xzf -
 ENV PATH=$PATH:/usr/local/go/bin
 
-# Cài đặt Docker (DinD)
+# Cài đặt Docker CLI
 RUN apt-get update && \
     apt-get install -y apt-transport-https ca-certificates curl software-properties-common && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
     apt-get update && \
-    apt-get install -y docker-ce
+    apt-get install -y docker-ce-cli
 
 # Sao chép mã nguồn của ứng dụng Go vào trong container
 COPY *.go /src/mypackage/myapp/
