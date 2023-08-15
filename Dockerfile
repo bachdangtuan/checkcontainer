@@ -16,7 +16,13 @@
 FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y curl git ca-certificates
-RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+
+RUN apt-get update && \
+    apt-get install -y apt-transport-https ca-certificates curl software-properties-common && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
+    apt-get update && \
+    apt-get install -y docker-ce
 
 
 COPY *.go $GOPATH/src/mypackage/myapp/
@@ -31,3 +37,6 @@ EXPOSE 19092
 
 ENTRYPOINT ["/go/bin/container_exporter"]
 CMD ["-listen-address=:19092"]
+
+
+# sudo docker run -p 19092:19092 --name container-exporter-isofh  -d nguyenngochuy/container_exporter -listen-address=:19092
