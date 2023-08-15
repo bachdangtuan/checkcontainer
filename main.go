@@ -22,6 +22,7 @@ import (
 )
 
 const (
+	// cachePeriod indicates the period of time the collector will reuse the results of docker inspect.
 	cachePeriod = 1 * time.Second
 )
 
@@ -42,7 +43,7 @@ func (desc *descSource) Desc(labels prometheus.Labels) *prometheus.Desc {
 }
 
 var (
-	namespace        = "kiem_tra_container_"
+	namespace        = "container_state_"
 	healthStatusDesc = descSource{
 		namespace + "health_status",
 		"Container health status."}
@@ -175,7 +176,7 @@ func errCheck(err error) {
 
 // Define flags.
 var (
-	address = flag.String("check-container-isofh", ":444", "Service check .")
+	address = flag.String("listen-address", ":19092", "The address to listen on for HTTP requests.")
 )
 
 func init() {
@@ -201,7 +202,7 @@ func main() {
 	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "<h1>docker state exporter</h1>")
+		fmt.Fprintf(w, "<h1>container exporter</h1>")
 	})
 
 	http.HandleFunc("/-/healthy", func(w http.ResponseWriter, r *http.Request) {
