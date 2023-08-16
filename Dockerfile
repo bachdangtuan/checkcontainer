@@ -1,5 +1,7 @@
 FROM golang:alpine as builder
 RUN apk update && apk add git && apk add ca-certificates
+COPY go.mod $GOPATH/src/mypackage/myapp/
+COPY go.sum $GOPATH/src/mypackage/myapp/
 COPY *.go $GOPATH/src/mypackage/myapp/
 WORKDIR $GOPATH/src/mypackage/myapp/
 RUN go mod download
