@@ -46,3 +46,4 @@ CMD ["-listen-address=:19092"]
 
 
 # sudo docker run -p 19092:19092 --name dangcap_pro  -d bachdangtuan-app10 -listen-address=:19092
+# sudo docker run -p 19092:19092 --name exporter-isofh -v "/var/run/docker.sock:/var/run/docker.sock"  -d democheck -listen-address=:19092
