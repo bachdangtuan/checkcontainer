@@ -19,31 +19,4 @@ CMD ["-listen-address=:19092"]
 
 
 
-# FROM docker:latest
-
-
-# RUN apk add --no-cache go
-
-
-# COPY *.go /src/mypackage/myapp/
-# WORKDIR /src/mypackage/myapp/
-
-
-# ENV GO111MODULE=on
-# RUN go mod init mypackage/myapp && go mod tidy
-
-
-# RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags="-w -s" -o /go/bin/container_exporter
-
-
-# EXPOSE 19092
-
-
-# ENTRYPOINT ["/go/bin/container_exporter"]
-# CMD ["-listen-address=:19092"]
-
-
-
-
-# sudo docker run -p 19092:19092 --name dangcap_pro  -d bachdangtuan-app10 -listen-address=:19092
 # sudo docker run -p 19092:19092 --name exporter-isofh -v "/var/run/docker.sock:/var/run/docker.sock"  -d democheck -listen-address=:19092

@@ -202,7 +202,8 @@ func main() {
 	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "<h1>Xích luyện tiên tử Lý MặcThiện LT </h1><br><h1>Giáo chủ SYSTEMS</h1><h1>Hân hạnh Tài trợ chương trình này</h1>")
+		fmt.Fprintf(w, `<h1>Isofh Metrics - Systems Team</h1><br><img src="https://storage.googleapis.com/hust-files/images/isofh_new_vuong_.6m.jpg" alt="Girl in a jacket" width="500" height="600">`)
+
 	})
 
 	http.HandleFunc("/-/healthy", func(w http.ResponseWriter, r *http.Request) {
