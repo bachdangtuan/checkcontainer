@@ -202,7 +202,7 @@ func main() {
 	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "<h1>Hoàng Tử Helpdesk Nguyễn Ngọc Huy</h1><br><h1>Hân hạnh Tài trợ chương trình này</h1>")
+		fmt.Fprintf(w, "<h1>Xích luyện tiên tử Lý MặcThiện LT </h1><br><h1>Giáo chủ SYSTEMS</h1><h1>Hân hạnh Tài trợ chương trình này</h1>")
 	})
 
 	http.HandleFunc("/-/healthy", func(w http.ResponseWriter, r *http.Request) {
