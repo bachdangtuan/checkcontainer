@@ -18,5 +18,7 @@ CMD ["-listen-address=:19092"]
 
 
 
+# go mod tidy
+
 
 # sudo docker run -p 19092:19092 --name exporter-isofh -v "/var/run/docker.sock:/var/run/docker.sock"  -d democheck -listen-address=:19092
