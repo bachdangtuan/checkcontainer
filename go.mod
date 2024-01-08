@@ -3,7 +3,7 @@ module bachdangtuan.com/v2
 go 1.20
 
 require (
-	github.com/docker/docker v20.10.21+incompatible
+	github.com/docker/docker v20.10.16+incompatible
 	github.com/go-kit/kit v0.12.0
 	github.com/prometheus/client_golang v1.16.0
 )
